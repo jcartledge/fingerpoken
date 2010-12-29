@@ -9,6 +9,14 @@
     keyboard.height(keyboard_button.height());
     keyboard.css('margin-left', '-' + keyboard_button.width() + 'px');
     keyboard.show();
+
+    keyboard.bind("focus", function() {
+      /* move the textarea away so we don't see the caret */
+      keyboard.css('margin-left', '-10000px');
+    });
+    keyboard.bind("blur", function(){
+      keyboard.css('margin-left', '-' + keyboard_button.width() + 'px');
+    });
     keyboard.bind("keypress", function(event) {
       var e = event.originalEvent;
       var key = e.charCode;
