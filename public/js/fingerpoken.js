@@ -43,7 +43,6 @@
     /* Sync configuration elements */
 
     /* Mouse movement */
-    console.log(config("fingerpoken/mouse/movement"));
     $("input[name = \"mouse-config\"]")
       .bind("change", function(event) {
         config("fingerpoken/mouse/movement", event.target.value);
@@ -61,7 +60,6 @@
      * Also, we want to make the content size full height. */
     $(window).bind("orientationchange resize pageshow", function(event) {
       scroll(0, 0);
-      console.log(window.orientation);
 
       var header = $(".header:visible");
       var footer = $(".footer:visible");
@@ -119,7 +117,6 @@
     
 
     /* TODO(sissel): add mousedown/mousemove/mouseup support */
-    console.log($("#touchpad-surface"));
     $("#area").bind("touchstart", function(event) {
       event.preventDefault();
       var e = event.originalEvent;
@@ -179,7 +176,6 @@
             keyboard.bind("keypress", function(event) {
               var e = event.originalEvent;
               var key = e.charCode;
-              console.log(key);
               if (!key) {
                 key = (e.keyCode ? e.keyCode : e.which);
               }
@@ -223,7 +219,6 @@
                 meta: e.ctrlKey,
               }));
 
-              console.log(key);
               var key = (e.keyCode ? e.keyCode : e.which);
               if (key >= 32 && key <= 127) {
                 /* skip printable keys (a-z, etc) */
